@@ -88,7 +88,6 @@ RSpec.describe 'Task', type: :system do
     context '正常系' do
       # FIXME: テストが失敗するので修正してください
       it 'Taskが削除されること' do
-        # 下記行を前述letで置き換えようとすると失敗する。projectの方は問題ない。
         task = FactoryBot.create(:task, project_id: project.id)
         visit project_tasks_path(project)
         click_link 'Destroy'
