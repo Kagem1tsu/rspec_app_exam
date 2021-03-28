@@ -86,10 +86,8 @@ RSpec.describe 'Task', type: :system do
 
   describe 'Task削除' do
     context '正常系' do
-      # FIXME: テストが失敗するので修正してください
       it 'Taskが削除されること' do
-        task = FactoryBot.create(:task, project_id: project.id)
-        visit project_tasks_path(project)
+        visit project_tasks_path(project, task)
         click_link 'Destroy'
         page.driver.browser.switch_to.alert.accept
         expect(find('.task_list')).not_to have_content(task.title)
